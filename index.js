@@ -10,5 +10,13 @@ function optimize(gamedata, {
 	endings = true,
 } = {}) {
 	const world = parser.BitsyParser.parse(gamedata.split('\n'));
+	if (palettes) {
+		for(let id in world.palettes) {
+			const used = Object.values(world.rooms).some(({ palette }) => palette === id);
+			if (!used) {
+				delete world.palettes[id];
+			}
+		}
+	}
 	return world.toString();
 }
