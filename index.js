@@ -50,16 +50,20 @@ export function optimize(gamedata, {
 
 
 	if (palettes) {
-		for(let id in world.palettes) {
-			const used = Object.values(world.rooms).some(({ palette }) => palette === id);
+		for (let id in world.palettes) {
+			const used = Object.values(world.rooms).some(({
+				palette
+			}) => palette === id);
 			if (!used) {
 				delete world.palettes[id];
 			}
 		}
 	}
 	if (tiles) {
-		for(let id in world.tiles) {
-			const used = Object.values(world.rooms).some(({ tiles }) => tiles.some(row => row.includes(id)));
+		for (let id in world.tiles) {
+			const used = Object.values(world.rooms).some(({
+				tiles,
+			}) => tiles.some(row => row.includes(id)));
 			if (!used) {
 				delete world.tiles[id];
 			}
@@ -79,16 +83,22 @@ export function optimize(gamedata, {
 		}
 	}
 	if (items) {
-		for(let id in world.items) {
-			const used = Object.values(world.rooms).some(({ items }) => items.some(({ id: itemId }) => itemId === id));
+		for (let id in world.items) {
+			const used = Object.values(world.rooms).some(({
+				items
+			}) => items.some(({
+				id: itemId,
+			}) => itemId === id));
 			if (!used) {
 				delete world.items[id];
 			}
 		}
 	}
 	if (dialogue) {
-		for(let id in world.dialogue) {
-			const used = Object.values(world.sprites).concat(Object.values(world.items)).some(({ dialogueID }) => dialogueID === id);
+		for (let id in world.dialogue) {
+			const used = Object.values(world.sprites).concat(Object.values(world.items)).some(({
+				dialogueID,
+			}) => dialogueID === id);
 			if (!used) {
 				delete world.dialogue[id];
 			}
@@ -104,8 +114,12 @@ export function optimize(gamedata, {
 		});
 	}
 	if (endings) {
-		for(let id in world.endings) {
-			const used = Object.values(world.rooms).some(({ endings }) => endings.some(({ id: endingId }) => endingId === id));
+		for (let id in world.endings) {
+			const used = Object.values(world.rooms).some(({
+				endings,
+			}) => endings.some(({
+				id: endingId,
+			}) => endingId === id));
 			if (!used) {
 				delete world.endings[id];
 			}
