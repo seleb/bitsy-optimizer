@@ -6,6 +6,7 @@ function optimize(gamedata, {
 	tiles = true,
 	sprites = true,
 	items = true,
+	dialogue = true,
 	exits = true,
 	endings = true,
 } = {}) {
@@ -44,6 +45,14 @@ function optimize(gamedata, {
 			const used = Object.values(world.rooms).some(({ items }) => items.some(({ id: itemId }) => itemId === id));
 			if (!used) {
 				delete world.items[id];
+			}
+		}
+	}
+	if (dialogue) {
+		for(let id in world.dialogue) {
+			const used = Object.values(world.sprites).concat(Object.values(world.items)).some(({ dialogueID }) => dialogueID === id);
+			if (!used) {
+				delete world.dialogue[id];
 			}
 		}
 	}
