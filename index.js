@@ -1,6 +1,6 @@
 import parser from '@bitsy/parser';
 
-export function optimize(gamedata, {
+export default function optimize(gamedata, {
 	rooms = true,
 	palettes = true,
 	tiles = true,
@@ -127,5 +127,3 @@ export function optimize(gamedata, {
 	}
 	return world.toString();
 }
-
-export default optimize;
