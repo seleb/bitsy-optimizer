@@ -52,5 +52,13 @@ function optimize(gamedata, {
 			}) => world.rooms[room]);
 		});
 	}
+	if (endings) {
+		for(let id in world.endings) {
+			const used = Object.values(world.rooms).some(({ endings }) => endings.some(({ id: endingId }) => endingId === id));
+			if (!used) {
+				delete world.endings[id];
+			}
+		}
+	}
 	return world.toString();
 }
