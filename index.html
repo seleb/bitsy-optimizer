@@ -1,0 +1,80 @@
+<html>
+
+<head>
+	<title>bitsy-optimizer</title>
+	<script src="./dist/index.iife.js"></script>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		html,
+		body,
+		form {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+
+		body {
+			padding: 1em;
+		}
+
+		form {
+			font-family: monospace;
+			display: grid;
+			grid-gap: 1em;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr auto;
+			height: 100%;
+		}
+
+		label {
+			display: flex;
+			flex-direction: column;
+		}
+
+		span {
+			flex: none;
+		}
+
+		textarea {
+			flex: auto;
+		}
+
+		input {
+			grid-column-start: 1;
+			grid-column-end: 3;
+		}
+	</style>
+</head>
+
+<body>
+	<form>
+		<label>
+			<span>Input:</span>
+			<textarea name="input" placeholder="Paste your gamedata here"></textarea>
+		</label>
+		<label>
+			<span>Output (click to copy):</span>
+			<textarea name="output" placeholder="Optimized gamedata will go here" readonly></textarea>
+		</label>
+		<input type="submit" value="Optimize">
+	</form>
+
+	<script>
+		var form = document.querySelector('form');
+		var output = document.querySelector('[name="output"]');
+		form.onsubmit = function (event) {
+			event.preventDefault();
+			output.value = window.bitsyOptimizer(new FormData(event.target).get('input'));
+		}
+		output.onclick = function (event) {
+			event.preventDefault();
+			event.target.select();
+			document.execCommand('copy');
+		}
+	</script>
+</body>
+
+</html>
