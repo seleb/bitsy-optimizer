@@ -10,7 +10,7 @@ export default function optimize(gamedata, {
 	exits = true,
 	endings = true,
 } = {}) {
-	const world = parser.BitsyParser.parse(gamedata.split('\n'));
+	const world = parser.BitsyParser.parse(gamedata.replace(/\r\n/g, '\n').split('\n'));
 
 	// have to start with rooms
 	// because a bunch of the following checks are "is in a room"
