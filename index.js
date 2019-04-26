@@ -18,5 +18,13 @@ function optimize(gamedata, {
 			}
 		}
 	}
+	if (tiles) {
+		for(let id in world.tiles) {
+			const used = Object.values(world.rooms).some(({ tiles }) => tiles.some(row => row.includes(id)));
+			if (!used) {
+				delete world.tiles[id];
+			}
+		}
+	}
 	return world.toString();
 }
