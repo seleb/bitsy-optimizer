@@ -11,6 +11,44 @@ function optimize(gamedata, {
 	endings = true,
 } = {}) {
 	const world = parser.BitsyParser.parse(gamedata.split('\n'));
+
+	// have to start with rooms
+	// because a bunch of the following checks are "is in a room"
+	if (rooms) {
+		// start with the room the player starts in
+		const start = world.sprites.A.position.room;
+		// trace exits out until we've hit all cycles/dead-ends
+		const usedRooms = new Set();
+
+		function findRoom(r) {
+			usedRooms.add(r);
+			const {
+				[r]: {
+					exits: roomExits = [],
+				} = {},
+			} = world.rooms;
+			roomExits.forEach(({
+				to: {
+					room,
+				},
+			}) => {
+				if (!usedRooms.has(room)) {
+					findRoom(room);
+				}
+			});
+		}
+		findRoom(start);
+		// delete remainder (except room 0)
+		usedRooms.add(0);
+		for (let id in world.rooms) {
+			const used = usedRooms.has(id);
+			if (!used) {
+				delete world.rooms[id];
+			}
+		}
+	}
+
+
 	if (palettes) {
 		for(let id in world.palettes) {
 			const used = Object.values(world.rooms).some(({ palette }) => palette === id);
