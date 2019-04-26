@@ -1,7 +1,30 @@
 {
-  "name": "bitsy-optimizer",
-  "version": "1.0.0",
-  "dependencies": {
-    "@bitsy/parser": "^0.2.8"
-  }
+	"name": "bitsy-optimizer",
+	"version": "1.0.0",
+	"description": "optimizer for bitsy gamedata",
+	"main": "./dist/index.js",
+	"module": "./dist/index.es.js",
+	"unpkg": "./dist/index.iife.js",
+	"keywords": [
+		"bitsy",
+		"optimization"
+	],
+	"author": "Sean S. LeBlanc <sean.s.leblanc@gmail.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:seleb/bitsy-optimizer.git"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"prepare": "npm run build"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.4.0",
+		"@babel/preset-env": "^7.4.2",
+		"rollup": "^1.7.0",
+		"rollup-plugin-babel": "^4.3.2",
+		"rollup-plugin-commonjs": "^9.2.1",
+		"rollup-plugin-node-resolve": "^4.2.3"
+	}
 }
