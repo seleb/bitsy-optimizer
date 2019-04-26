@@ -1,4 +1,7 @@
 {
   "name": "bitsy-optimizer",
   "version": "1.0.0",
+  "dependencies": {
+    "@bitsy/parser": "^0.2.8"
+  }
 }
