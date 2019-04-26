@@ -28,7 +28,11 @@ function optimize(gamedata, {
 	}
 	if (sprites) {
 		for (let id in world.sprites) {
-			const room = world.sprites[id].room;
+			const {
+				position: {
+					room,
+				} = {},
+			} = world.sprites[id];
 			const used = room && world.rooms[room];
 			if (!used) {
 				delete world.sprites[id];
