@@ -43,5 +43,14 @@ function optimize(gamedata, {
 			}
 		}
 	}
+	if (exits) {
+		Object.values(world.rooms).forEach(room => {
+			room.exits = room.exits.filter(({
+				to: {
+					room,
+				},
+			}) => world.rooms[room]);
+		});
+	}
 	return world.toString();
 }
