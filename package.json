@@ -1,5 +1,5 @@
 {
-	"name": "bitsy-optimizer",
+	"name": "@bitsy/optimizer",
 	"version": "1.0.0",
 	"description": "optimizer for bitsy gamedata",
 	"main": "./dist/index.js",

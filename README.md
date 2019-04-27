@@ -1,4 +1,4 @@
-# bitsy-optimizer
+# @bitsy/optimizer
 
 optimizer for bitsy gamedata
 
@@ -11,7 +11,7 @@ Note that optimizations are written in terms of vanilla bitsy; many hacks may us
 1. include `./dist/index.iife.js` in HTML
 
 ```html
-<script src="vendor/bitsy-optimizer/dist/index.iife.js"></script>
+<script src="vendor/@bitsy/optimizer/dist/index.iife.js"></script>
 ```
 
 2. reference global
@@ -25,17 +25,17 @@ const optimize = window.bitsyOptimizer;
 1. install
 
 ```sh
-npm install bitsy-optimizer --save
+npm install @bitsy/optimizer --save
 ```
 
 2. import
 
 ```js
-const optimize = require("bitsy-optimizer");
+const optimize = require("@bitsy/optimizer");
 ```
 
 ```js
-import optimize from 'bitsy-optimizer';
+import optimize from '@bitsy/optimizer';
 ```
 
 ### Use
