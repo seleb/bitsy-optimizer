@@ -129,7 +129,7 @@ ${valuesToString(this.variables)}`;
     toString() {
       const props = [];
       props.push(super.toString());
-      props.push(this.graphic.map(g => g.map(b => b ? 1 : 0).join('').replace(/(.{8})/g, '$1\n')).join('\n>\n').trim());
+      props.push(this.graphic.map(g => g.map(b => b ? 1 : 0).join('').replace(/(.{8})/g, '$1\n').trim()).join('\n>\n'));
 
       if (this.name) {
         props.push(`NAME ${this.name}`);
