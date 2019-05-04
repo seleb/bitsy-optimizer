@@ -22,12 +22,12 @@
 	"devDependencies": {
 		"@babel/core": "^7.4.4",
 		"@babel/preset-env": "^7.4.4",
-		"rollup": "^1.7.0",
+		"rollup": "^1.11.2",
 		"rollup-plugin-babel": "^4.3.2",
 		"rollup-plugin-commonjs": "^9.2.1",
 		"rollup-plugin-node-resolve": "^4.2.3"
 	},
 	"dependencies": {
-		"@bitsy/parser": "^1.0.1"
+		"@bitsy/parser": "^1.0.2"
 	}
 }
