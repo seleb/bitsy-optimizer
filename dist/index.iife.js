@@ -424,6 +424,7 @@ ${this.value}`;
 	      const room = new BitsyRoom();
 	      this.takeResourceID(room);
 	      this.takeRoomTiles(room);
+	      this.tryTakeResourceName(room);
 
 	      while (this.checkLine("ITM")) {
 	        this.takeRoomItem(room);
