@@ -9,30 +9,6 @@ var bitsyOptimizer = (function () {
 		return module = { exports: {} }, fn(module, module.exports), module.exports;
 	}
 
-	var colourUtils = createCommonjsModule(function (module, exports) {
-
-	  Object.defineProperty(exports, "__esModule", {
-	    value: true
-	  });
-	  exports.rgbStringToNum = exports.numToRgbString = void 0;
-
-	  function numToRgbString(num) {
-	    return `${num >> 16 & 255},${num >> 8 & 255},${num & 255}`;
-	  }
-
-	  exports.numToRgbString = numToRgbString;
-
-	  function rgbStringToNum(str) {
-	    const [r, g, b] = str.split(",");
-	    return parseInt(b, 10) << 0 | parseInt(g, 10) << 8 | parseInt(r, 10) << 16;
-	  }
-
-	  exports.rgbStringToNum = rgbStringToNum;
-	});
-	unwrapExports(colourUtils);
-	var colourUtils_1 = colourUtils.rgbStringToNum;
-	var colourUtils_2 = colourUtils.numToRgbString;
-
 	var dist = createCommonjsModule(function (module, exports) {
 
 	  Object.defineProperty(exports, "__esModule", {
@@ -181,7 +157,11 @@ ${[this.palettes, this.rooms, this.tiles, this.sprites, this.items, this.dialogu
 	    }
 
 	    toString() {
-	      return `${[super.toString(), this.name && `NAME ${this.name}`, ...this.colors.map(colourUtils.numToRgbString)].filter(i => i).join('\n')}`;
+	      return `${[super.toString(), this.name && `NAME ${this.name}`, ...this.colors.map(({
+        r,
+        g,
+        b
+      }) => `${r},${g},${b}`)].filter(i => i).join('\n')}`;
 	    }
 
 	  }
@@ -354,7 +334,12 @@ ${this.value}`;
 	    }
 
 	    takeColor() {
-	      return colourUtils.rgbStringToNum(this.takeLine());
+	      const [r, g, b] = this.takeLine().split(',').map(component => parseInt(component, 10));
+	      return {
+	        r,
+	        g,
+	        b
+	      };
 	    }
 
 	    takeResourceID(resource) {
