@@ -15,6 +15,9 @@
 		"type": "git",
 		"url": "git@github.com:seleb/bitsy-optimizer.git"
 	},
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "rollup -c",
 		"prepare": "npm run build"
