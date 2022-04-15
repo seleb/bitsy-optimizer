@@ -563,18 +563,18 @@ ${this.value}`;
 	  exports.BitsyParser = BitsyParser;
 	});
 	var parser = unwrapExports(dist);
-	var dist_1 = dist.BitsyParser;
-	var dist_2 = dist.BitsyVariable;
-	var dist_3 = dist.BitsyEnding;
-	var dist_4 = dist.BitsyDialogue;
-	var dist_5 = dist.BitsyRoom;
-	var dist_6 = dist.BitsyPalette;
-	var dist_7 = dist.BitsyItem;
-	var dist_8 = dist.BitsySprite;
-	var dist_9 = dist.BitsyTile;
-	var dist_10 = dist.BitsyObjectBase;
-	var dist_11 = dist.BitsyResourceBase;
-	var dist_12 = dist.BitsyWorld;
+	dist.BitsyParser;
+	dist.BitsyVariable;
+	dist.BitsyEnding;
+	dist.BitsyDialogue;
+	dist.BitsyRoom;
+	dist.BitsyPalette;
+	dist.BitsyItem;
+	dist.BitsySprite;
+	dist.BitsyTile;
+	dist.BitsyObjectBase;
+	dist.BitsyResourceBase;
+	dist.BitsyWorld;
 
 	function optimize(gamedata, {
 	  rooms = true,
@@ -720,4 +720,4 @@ ${this.value}`;
 
 	return optimize;
 
-}());
+})();
