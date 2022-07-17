@@ -23,8 +23,8 @@
 		"postversion": "npm run build"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.17.9",
-		"@babel/preset-env": "^7.16.11",
+		"@babel/core": "^7.18.6",
+		"@babel/preset-env": "^7.18.6",
 		"rollup": "^2.70.2",
 		"rollup-plugin-babel": "^4.4.0",
 		"rollup-plugin-commonjs": "^10.1.0",
