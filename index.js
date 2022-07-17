@@ -76,7 +76,11 @@ export default function optimize(gamedata, {
 					room,
 				} = {},
 			} = world.sprites[id];
-			const used = room && world.rooms[room];
+			const used =
+				// the room the sprite is in exists
+				(room && world.rooms[room]) ||
+				// the sprite is used as an avatar-by-room value
+				Object.values(world.rooms).some(room => room.avatar === id);
 			if (!used) {
 				delete world.sprites[id];
 			}
