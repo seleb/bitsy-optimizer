@@ -10,6 +10,7 @@ export default function optimize(gamedata, {
 	exits = true,
 	endings = true,
 	tunes = true,
+	blips = true,
 } = {}) {
 	const world = parser.BitsyParser.parse(gamedata.replace(/\r\n/g, '\n').split('\n'));
 
@@ -135,6 +136,14 @@ export default function optimize(gamedata, {
 			const used = Object.values(world.rooms).some(room => room.tune === id);
 			if (!used) {
 				delete world.tunes[id];
+			}
+		}
+	}
+	if (blips) {
+		for (let id in world.blips) {
+			const used = Object.values(world.sprites).concat(world.items).some(obj => obj.blip === id);
+			if (!used) {
+				delete world.blips[id];
 			}
 		}
 	}
