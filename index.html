@@ -190,7 +190,7 @@
 					<input type="checkbox" checked name="tiles" />
 					tiles
 				</label>
-				<label title="removes sprites that aren't placed in any rooms">
+				<label title="removes sprites that aren't placed in any rooms or used as an avatar">
 					<input type="checkbox" checked name="sprites" />
 					sprites
 				</label>
@@ -209,6 +209,14 @@
 				<label title="removes endings that aren't placed in any rooms">
 					<input type="checkbox" checked name="endings" />
 					endings
+				</label>
+				<label title="removes tunes not used in any room">
+					<input type="checkbox" checked name="tunes" />
+					tunes
+				</label>
+				<label title="blips that aren't assigned to any sprites or items">
+					<input type="checkbox" checked name="blips" />
+					blips
 				</label>
 			</section>
 			<input type="submit" value="Optimize" />
@@ -230,6 +238,8 @@
 				dialogue: formData.get('dialogue') === 'on',
 				exits: formData.get('exits') === 'on',
 				endings: formData.get('endings') === 'on',
+				tunes: formData.get('tunes') === 'on',
+				blips: formData.get('blips') === 'on',
 			});
 		}
 		output.onclick = function (event) {
