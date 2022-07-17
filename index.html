@@ -112,10 +112,21 @@
 
 		form {
 			display: grid;
-			grid-gap: 1rem;
+			gap: 1rem;
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: 1fr auto;
 			height: 100%;
+		}
+
+		@media only screen and (max-width: 500px) {
+			form {
+				display: flex;
+				flex-direction: column;
+			}
+
+			form > section:nth-child(2) {
+				order: 1;
+			}
 		}
 
 		section {
