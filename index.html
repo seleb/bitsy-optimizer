@@ -238,18 +238,28 @@
 		form.onsubmit = function (event) {
 			event.preventDefault();
 			const formData = new FormData(event.target);
-			output.value = window.bitsyOptimizer(formData.get('input'), {
-				rooms: formData.get('rooms') === 'on',
-				palettes: formData.get('palettes') === 'on',
-				tiles: formData.get('tiles') === 'on',
-				sprites: formData.get('sprites') === 'on',
-				items: formData.get('items') === 'on',
-				dialogue: formData.get('dialogue') === 'on',
-				exits: formData.get('exits') === 'on',
-				endings: formData.get('endings') === 'on',
-				tunes: formData.get('tunes') === 'on',
-				blips: formData.get('blips') === 'on',
-			});
+			const input = formData.get('input');
+			if (!input) {
+				output.value = 'No input found!';
+				return;
+			}
+			try {
+				output.value = window.bitsyOptimizer(input, {
+					rooms: formData.get('rooms') === 'on',
+					palettes: formData.get('palettes') === 'on',
+					tiles: formData.get('tiles') === 'on',
+					sprites: formData.get('sprites') === 'on',
+					items: formData.get('items') === 'on',
+					dialogue: formData.get('dialogue') === 'on',
+					exits: formData.get('exits') === 'on',
+					endings: formData.get('endings') === 'on',
+					tunes: formData.get('tunes') === 'on',
+					blips: formData.get('blips') === 'on',
+				});
+			} catch (err) {
+				console.error(err);
+				output.value = `Something went wrong!\n\n${err.message}\n\nCheck the console for more info.`;
+			}
 		}
 		output.onclick = function (event) {
 			event.preventDefault();
