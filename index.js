@@ -9,6 +9,7 @@ export default function optimize(gamedata, {
 	dialogue = true,
 	exits = true,
 	endings = true,
+	tunes = true,
 } = {}) {
 	const world = parser.BitsyParser.parse(gamedata.replace(/\r\n/g, '\n').split('\n'));
 
@@ -126,6 +127,14 @@ export default function optimize(gamedata, {
 			}) => endingId === id));
 			if (!used) {
 				delete world.endings[id];
+			}
+		}
+	}
+	if (tunes) {
+		for (let id in world.tunes) {
+			const used = Object.values(world.rooms).some(room => room.tune === id);
+			if (!used) {
+				delete world.tunes[id];
 			}
 		}
 	}
