@@ -2,7 +2,11 @@
 
 optimizer for bitsy gamedata
 
-Note that optimizations are written in terms of vanilla bitsy; many hacks may use gamedata which would otherwise be seen as "unused" in a vanilla bitsy game (e.g. a room may have no exits pointing to it, but still be used via `exit-from-dialog` tags), so be wary of this when choosing what to optimize.
+A few things to note:
+
+- Optimizations are written in terms of vanilla bitsy; many hacks may use gamedata which would otherwise be seen as "unused" in a vanilla bitsy game (e.g. a room may have no exits pointing to it, but still be used via `exit-from-dialog` tags), so be wary of this when choosing what to optimize.
+- Dialog scripts are not taken into account, which means data only referenced in dialog (e.g. an audio blip in 8.0 that is called from dialog but not directly assigned to any sprite/item) will be removed and may break your game.
+- Make sure to save a backup in case you remove something unintentionally as part of optimizing!
 
 ## How To
 
