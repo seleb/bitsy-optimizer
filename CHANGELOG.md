@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/seleb/bitsy-optimizer/compare/v1.3.0...v1.3.1) (2022-07-17)
+
+
+### Bug Fixes
+
+* **GUI:** improve mobile layout ([3ead641](https://github.com/seleb/bitsy-optimizer/commit/3ead64102ad645b89abf41058c30d15ecc586f96))
+
 # [1.3.0](https://github.com/seleb/bitsy-optimizer/compare/v1.2.1...v1.3.0) (2022-07-17)
 
 
